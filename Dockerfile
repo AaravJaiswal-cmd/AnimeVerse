@@ -1,13 +1,6 @@
 FROM eclipse-temurin:21-jdk
-
 WORKDIR /app
-
-COPY Main.java .
-
-COPY public ./public
-
-RUN javac --add-modules jdk.httpserver Main.java
-
+COPY . .
+RUN javac Main.java
 EXPOSE 8000
-
-CMD ["java", "--add-modules", "jdk.httpserver", "Main"]
+CMD ["java","Main"]
